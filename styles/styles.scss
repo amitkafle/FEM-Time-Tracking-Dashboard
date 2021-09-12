@@ -7,15 +7,277 @@ $font-cards-title-size: 1.125rem;
 
 // ### Primary Colors
 $clr-pr-blue: hsl(246, 80%, 60%);
-$clr-pr-Lightred-work: hsl(15, 100%, 70%);
-$clr-pr-Softblue-play: hsl(195, 74%, 62%);
-$clr-pr-Lightred-study: hsl(348, 100%, 68%);
-$clr-pr-Limegreen-exercise: hsl(145, 58%, 55%);
-$clr-pr-Violet-social: hsl(264, 64%, 52%);
-$clr-pr-Softorange-self-care: hsl(43, 84%, 65%);
+$clr-work: hsl(15, 100%, 70%);
+$clr-play: hsl(195, 74%, 62%);
+$clr-study: hsl(348, 100%, 68%);
+$clr-exercise: hsl(145, 58%, 55%);
+$clr-social: hsl(264, 64%, 52%);
+$clr-self-care: hsl(43, 84%, 65%);
 
 // ### Neutral Colors
-$clr-nt-Verydarkblue: hsl(226, 43%, 10%);
-$clr-nt-Darkblue: hsl(235, 46%, 20%);
-$clr-nt-Desaturatedblue: hsl(235, 45%, 61%);
-$clr-nt-PaleBlue: hsl(236, 100%, 87%);
+$clr-bg-body: hsl(226, 43%, 10%);
+$clr-tilefront: hsl(235, 46%, 20%);
+$clr-tilehover: hsl(236, 40%, 35%);
+$clr-tilesubtext: hsl(235, 45%, 61%);
+$clr-text-active-hover: hsl(236, 100%, 87%);
+$clr-text: hsl(258, 100%, 98%);
+$clr-timeframes: hsl(235, 29%, 41%);
+$clr-alt: #B0AAFF;
+
+//borders
+$rounded-corner: 20px;
+
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $clr-bg-body;
+    font-family: $font-family;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 20fr 60fr;
+    grid-template-areas: "header tiles";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    gap: 30px;
+}
+
+.header{
+    font-size: $font-cards-title-size;
+    position: relative;
+    height: 530px;
+    width: 255px;
+    z-index: 0;
+    grid-area: header;
+
+    .tileBackHead{
+        background-color: $clr-pr-blue;
+        height: 371px;
+        width: 255px;
+        border-radius: $rounded-corner;
+        padding: 30px 0 85px 30px;
+        position: relative;
+        z-index: 2;
+        line-height: 40px;
+
+        .nameTitle {
+            margin-top: 40px;
+        }
+
+        .subText{
+            font-size: 1rem;
+            color: $clr-alt;
+        }
+
+        .userName{
+            text-transform: uppercase;
+            font-size: 2rem;
+            color: $clr-text;
+            font-weight: 300;
+        }
+
+        .imgdiv{
+            position: relative;
+            display: grid;
+            place-items: center;
+            background-color: #fff;
+            border: 3px solid #fff;
+            height: 85px;
+            width: 85px;
+            border-radius: 50%;
+            box-sizing: border-box; 
+
+            .profilePic{
+                border-radius: 50%;
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        
+    }
+
+    .tileFrontHead{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: $clr-tilefront;
+        height: 530px;
+        width: 255px;
+        border-radius: $rounded-corner;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        
+
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: $clr-alt;
+            z-index: 3;
+
+            .timeframes{
+                padding-top: 15px;
+
+                &.active {
+                    color: $clr-text;
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    color: $clr-text;
+                }
+            }
+        }
+    }
+}
+
+.tiles {
+        display: grid;
+        grid-area: tiles;
+        grid-template-columns: 20fr 20fr 20fr;
+        grid-template-areas: "work play study"
+                     "exercise social selfcare";
+        gap: 30px;
+        row-gap: 30px;
+
+
+    .tile{
+        position: relative;
+        height: 250px;
+        width: 255px;
+        border-radius: $rounded-corner;
+
+        &[data-title="work"]{
+            grid-area: work;
+        }
+
+        &[data-title="play"]{
+            grid-area: play;
+        }
+
+        &[data-title="study"]{
+            grid-area: study;
+        }
+
+        &[data-title="exercise"]{
+            grid-area: exercise;
+        }
+
+        &[data-title="social"]{
+            grid-area: social;
+        }
+
+        &[data-title="selfCare"]{
+            grid-area: selfcare;
+        }
+
+        .tileBack{
+            position: relative;
+            height: 250px;
+            width: 255px;
+            z-index: 1;
+            border-radius: $rounded-corner;
+
+            &.work{
+                background-color: $clr-work;
+            }
+
+            &.play{
+                background-color: $clr-play;
+            }
+
+            &.study{
+                background-color: $clr-study;
+            }
+
+            &.exercise{
+                background-color: $clr-exercise;
+            }
+
+            &.social{
+                background-color: $clr-social;
+            }
+
+            &.selfCare{
+                background-color: $clr-self-care;
+            }
+        }
+
+        .tileFront{
+            position: absolute;
+            bottom: 0;
+            height: 200px;
+            width: 255px;
+            z-index: 2;
+            background-color: $clr-tilefront;
+            border-radius: $rounded-corner;
+            padding: 20px;
+            line-height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &:hover{
+                background-color: $clr-tilehover;
+                cursor: pointer;
+            }
+
+            .tileTitle, .previousData{
+                font-size: $font-cards-title-size;
+            }
+
+            .tileTitle, .currentData, .tilePointer {
+                color: $clr-text;
+            }
+
+            .currentData {
+                font-size: 3.5rem;
+                font-weight: 300;
+                line-height: 60px;
+            }
+
+            .previousData{
+                color: $clr-alt;
+                font-size: 1rem;
+            }
+
+            .tileTitle{
+                font-weight: 500;
+                font-size: 1.2em;
+            }
+
+            .tilePointer{
+                font-size: 1.5rem;
+
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+
+            .tileHead{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+}
+
+
+
