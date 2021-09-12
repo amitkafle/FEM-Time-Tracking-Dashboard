@@ -12,6 +12,14 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
+.center {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 700px;
+  min-width: 350px;
+}
+
 .container {
   display: -ms-grid;
   display: grid;
@@ -19,12 +27,22 @@ body {
   -ms-grid-columns: 20fr 60fr;
       grid-template-columns: 20fr 60fr;
       grid-template-areas: "header tiles";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   gap: 30px;
+  padding: 50px;
+}
+
+@media screen and (max-width: 769px) {
+  .container {
+    width: 370px;
+        grid-template-areas: "header"  "tiles";
+    padding: 10px;
+  }
 }
 
 .header {
@@ -38,6 +56,14 @@ body {
   grid-area: header;
 }
 
+@media screen and (max-width: 769px) {
+  .header {
+    height: 220px;
+    width: 350px;
+    margin-top: 50px;
+  }
+}
+
 .header .tileBackHead {
   background-color: #5847eb;
   height: 371px;
@@ -49,8 +75,30 @@ body {
   line-height: 40px;
 }
 
+@media screen and (max-width: 769px) {
+  .header .tileBackHead {
+    height: 150px;
+    width: 350px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0;
+  }
+}
+
 .header .tileBackHead .nameTitle {
   margin-top: 40px;
+}
+
+@media screen and (max-width: 769px) {
+  .header .tileBackHead .nameTitle {
+    margin-top: 0;
+  }
 }
 
 .header .tileBackHead .subText {
@@ -63,6 +111,12 @@ body {
   font-size: 2rem;
   color: #f8f5ff;
   font-weight: 300;
+}
+
+@media screen and (max-width: 769px) {
+  .header .tileBackHead .userName {
+    font-size: 1.5rem;
+  }
 }
 
 .header .tileBackHead .imgdiv {
@@ -105,6 +159,13 @@ body {
           flex-direction: column;
 }
 
+@media screen and (max-width: 769px) {
+  .header .tileFrontHead {
+    height: 220px;
+    width: 350px;
+  }
+}
+
 .header .tileFrontHead ul {
   list-style: none;
   display: -webkit-box;
@@ -119,6 +180,20 @@ body {
   left: 30px;
   color: #B0AAFF;
   z-index: 3;
+}
+
+@media screen and (max-width: 769px) {
+  .header .tileFrontHead ul {
+    width: 350px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    bottom: 20px;
+    left: 0;
+  }
 }
 
 .header .tileFrontHead ul .timeframes {
@@ -147,11 +222,32 @@ body {
   row-gap: 30px;
 }
 
+@media screen and (max-width: 769px) {
+  .tiles {
+        grid-template-areas: "work"  "play" "study" "exercise" "social" "selfcare";
+    gap: 0;
+    row-gap: 30px;
+    margin-bottom: 20px;
+  }
+}
+
 .tiles .tile {
   position: relative;
   height: 250px;
   width: 255px;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 769px) {
+  .tiles .tile {
+    height: 170px;
+    width: 350px;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .tiles .tile[data-title="work"] {
@@ -184,7 +280,7 @@ body {
   grid-area: social;
 }
 
-.tiles .tile[data-title="selfCare"] {
+.tiles .tile[data-title="selfcare"] {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: selfcare;
@@ -198,28 +294,53 @@ body {
   border-radius: 20px;
 }
 
+@media screen and (max-width: 769px) {
+  .tiles .tile .tileBack {
+    height: 170px;
+    width: 350px;
+  }
+}
+
 .tiles .tile .tileBack.work {
   background-color: #ff8c66;
+  background-image: url("../assets/icon-work.svg");
+  background-repeat: no-repeat;
+  background-position-x: right;
 }
 
 .tiles .tile .tileBack.play {
   background-color: #56c2e6;
+  background-image: url("../assets/icon-play.svg");
+  background-repeat: no-repeat;
+  background-position-x: right;
 }
 
 .tiles .tile .tileBack.study {
   background-color: #ff5c7c;
+  background-image: url("../assets/icon-study.svg");
+  background-repeat: no-repeat;
+  background-position-x: right;
 }
 
 .tiles .tile .tileBack.exercise {
   background-color: #4acf81;
+  background-image: url("../assets/icon-exercise.svg");
+  background-repeat: no-repeat;
+  background-position-x: right;
 }
 
 .tiles .tile .tileBack.social {
   background-color: #7536d3;
+  background-image: url("../assets/icon-social.svg");
+  background-repeat: no-repeat;
+  background-position-x: right;
 }
 
-.tiles .tile .tileBack.selfCare {
+.tiles .tile .tileBack.selfcare {
   background-color: #f1c65b;
+  background-image: url("../assets/icon-self-care.svg");
+  background-repeat: no-repeat;
+  background-position-x: right;
 }
 
 .tiles .tile .tileFront {
@@ -244,6 +365,29 @@ body {
           justify-content: space-between;
 }
 
+@media screen and (max-width: 769px) {
+  .tiles .tile .tileFront {
+    height: 120px;
+    width: 350px;
+    padding: 30px;
+    padding-top: 10px;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .tiles .tile .tileFront .statDiv {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .tiles .tile .tileFront:hover {
   background-color: #363a7d;
   cursor: pointer;
@@ -251,6 +395,12 @@ body {
 
 .tiles .tile .tileFront .tileTitle, .tiles .tile .tileFront .previousData {
   font-size: 1.125rem;
+}
+
+@media screen and (max-width: 769px) {
+  .tiles .tile .tileFront .tileTitle, .tiles .tile .tileFront .previousData {
+    font-size: 0.9rem;
+  }
 }
 
 .tiles .tile .tileFront .tileTitle, .tiles .tile .tileFront .currentData, .tiles .tile .tileFront .tilePointer {
@@ -263,9 +413,21 @@ body {
   line-height: 60px;
 }
 
+@media screen and (max-width: 769px) {
+  .tiles .tile .tileFront .currentData {
+    font-size: 2rem;
+  }
+}
+
 .tiles .tile .tileFront .previousData {
   color: #B0AAFF;
   font-size: 1rem;
+}
+
+@media screen and (max-width: 769px) {
+  .tiles .tile .tileFront .previousData {
+    font-size: 1.2rem;
+  }
 }
 
 .tiles .tile .tileFront .tileTitle {

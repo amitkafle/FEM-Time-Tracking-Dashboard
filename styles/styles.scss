@@ -39,16 +39,30 @@ body {
     font-family: $font-family;
 }
 
+.center{
+    display: grid;
+    place-items: center;
+    height: 700px;
+    min-width: 350px;
+}
+
+
 .container {
     display: grid;
     place-items: center;
     grid-template-columns: 20fr 60fr;
     grid-template-areas: "header tiles";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
     gap: 30px;
+    padding: 50px;
+
+    @media screen and (max-width: 769px){
+        width: 370px;
+        grid-template-areas: "header" 
+                        "tiles";
+                        padding: 10px;
+    }
 }
 
 .header{
@@ -58,6 +72,13 @@ body {
     width: 255px;
     z-index: 0;
     grid-area: header;
+
+
+    @media screen and (max-width: 769px){
+        height: 220px;
+        width: 350px;
+        margin-top: 50px;
+    }
 
     .tileBackHead{
         background-color: $clr-pr-blue;
@@ -69,13 +90,26 @@ body {
         z-index: 2;
         line-height: 40px;
 
+        @media screen and (max-width: 769px){
+            height: 150px;
+            width: 350px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0;
+        }
+
         .nameTitle {
             margin-top: 40px;
+            @media screen and (max-width: 769px){
+                margin-top: 0;
+            }
         }
 
         .subText{
             font-size: 1rem;
             color: $clr-alt;
+
         }
 
         .userName{
@@ -83,6 +117,9 @@ body {
             font-size: 2rem;
             color: $clr-text;
             font-weight: 300;
+            @media screen and (max-width: 769px){
+                font-size: 1.5rem;
+            }
         }
 
         .imgdiv{
@@ -119,6 +156,11 @@ body {
         z-index: 1;
         display: flex;
         flex-direction: column;
+
+        @media screen and (max-width: 769px){
+            height: 220px;
+            width: 350px;
+        }
         
 
         ul{
@@ -130,6 +172,14 @@ body {
             left: 30px;
             color: $clr-alt;
             z-index: 3;
+
+            @media screen and (max-width: 769px){
+                width: 350px;
+                flex-direction: row;
+                justify-content: space-around;
+                bottom: 20px;
+                left: 0;
+            }
 
             .timeframes{
                 padding-top: 15px;
@@ -156,12 +206,34 @@ body {
         gap: 30px;
         row-gap: 30px;
 
+        @media screen and (max-width: 769px){
+            grid-template-areas: "work" 
+            "play"
+            "study"
+            "exercise"
+            "social"
+            "selfcare";
+            gap: 0;
+        row-gap: 30px;
+        margin-bottom: 20px;
+        }
+
 
     .tile{
         position: relative;
         height: 250px;
         width: 255px;
         border-radius: $rounded-corner;
+
+        @media screen and (max-width: 769px){
+            height: 170px;
+            width: 350px;
+            display: grid;
+            place-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
 
         &[data-title="work"]{
             grid-area: work;
@@ -183,7 +255,7 @@ body {
             grid-area: social;
         }
 
-        &[data-title="selfCare"]{
+        &[data-title="selfcare"]{
             grid-area: selfcare;
         }
 
@@ -193,29 +265,51 @@ body {
             width: 255px;
             z-index: 1;
             border-radius: $rounded-corner;
+            @media screen and (max-width: 769px){
+                height: 170px;
+                width: 350px;
+            }
 
             &.work{
                 background-color: $clr-work;
+                background-image: url("../assets/icon-work.svg");
+                background-repeat: no-repeat;
+                background-position-x: right;
             }
 
             &.play{
                 background-color: $clr-play;
+                background-image: url("../assets/icon-play.svg");
+                background-repeat: no-repeat;
+                background-position-x: right;
             }
 
             &.study{
                 background-color: $clr-study;
+                background-image: url("../assets/icon-study.svg");
+                background-repeat: no-repeat;
+                background-position-x: right;
             }
 
             &.exercise{
                 background-color: $clr-exercise;
+                background-image: url("../assets/icon-exercise.svg");
+                background-repeat: no-repeat;
+                background-position-x: right;
             }
 
             &.social{
                 background-color: $clr-social;
+                background-image: url("../assets/icon-social.svg");
+                background-repeat: no-repeat;
+                background-position-x: right;
             }
 
-            &.selfCare{
+            &.selfcare{
                 background-color: $clr-self-care;
+                background-image: url("../assets/icon-self-care.svg");
+                background-repeat: no-repeat;
+                background-position-x: right;
             }
         }
 
@@ -233,6 +327,21 @@ body {
             flex-direction: column;
             justify-content: space-between;
 
+            @media screen and (max-width: 769px){
+                height: 120px;
+                width: 350px;
+                padding: 30px;
+                padding-top: 10px;
+            }
+
+            .statDiv{
+                @media screen and (max-width: 769px){
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+
             &:hover{
                 background-color: $clr-tilehover;
                 cursor: pointer;
@@ -240,6 +349,9 @@ body {
 
             .tileTitle, .previousData{
                 font-size: $font-cards-title-size;
+                @media screen and (max-width: 769px){
+                    font-size: 0.9rem;
+                }
             }
 
             .tileTitle, .currentData, .tilePointer {
@@ -250,11 +362,17 @@ body {
                 font-size: 3.5rem;
                 font-weight: 300;
                 line-height: 60px;
+                @media screen and (max-width: 769px){
+                    font-size: 2rem;
+                }
             }
 
             .previousData{
                 color: $clr-alt;
                 font-size: 1rem;
+                @media screen and (max-width: 769px){
+                    font-size: 1.2rem;
+                }
             }
 
             .tileTitle{
@@ -278,6 +396,3 @@ body {
         }
     }
 }
-
-
-

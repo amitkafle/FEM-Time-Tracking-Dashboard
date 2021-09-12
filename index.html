@@ -5,42 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Time Tracking Dashboard">
     <title>FEM - Time Tracking Dashboard</title>
-    
+
     <link rel="stylesheet" href="./styles/styles.css">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="container">
+    <div class="center">
+        <div class="container">
 
-        <div class="header">
+            <div class="header">
 
-            <div class="profile tileBackHead">
-                <div class="imgdiv">
-                    <img src="./assets/image-jeremy.png" alt="profile picture" class="profilePic">
+                <div class="profile tileBackHead">
+                    <div class="imgdiv">
+                        <img src="./assets/image-jeremy.png" alt="profile picture" class="profilePic">
+                    </div>
+                    <div class="nameTitle">
+                        <p class="subText">Report for</p>
+                        <p class="userName">Jeremy Robson</p>
+                    </div>
                 </div>
-                <div class="nameTitle">
-                    <p class="subText">Report for</p>
-                    <p class="userName">Jeremy Robson</p>
+
+                <div class="subProfile tileFrontHead">
+                    <ul>
+                        <li class="timeframes active" data-time="daily">Daily</li>
+                        <li class="timeframes" data-time="weekly">Weekly</li>
+                        <li class="timeframes" data-time="monthly">Monthly</li>
+                    </ul>
                 </div>
+
             </div>
 
-            <div class="subProfile tileFrontHead">
-                <ul>
-                    <li class="timeframes active" data-time="daily">Daily</li>
-                    <li class="timeframes" data-time="weekly">Weekly</li>
-                    <li class="timeframes" data-time="monthly">Monthly</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="tiles datatitle">
-            <div class="tile" data-title="work">
+            <div class="tiles datatitle">
+                <!-- <div class="tile" data-title="work">
                 <div class="tileBack work">
-                    
+
                 </div>
                 <div class="tileFront">
                     <div class="tileHead">
@@ -74,14 +77,16 @@
                 <div class="tileFront"></div>
             </div>
 
-            <div class="tile" data-title="selfCare">
-                <div class="tileBack selfCare"></div>
+            <div class="tile" data-title="selfcare">
+                <div class="tileBack selfcare"></div>
                 <div class="tileFront"></div>
+            </div> -->
+
             </div>
 
         </div>
-
     </div>
+
 
     <script src="./scripts/index.js"></script>
     <script src="./scripts/app.js"></script>
