@@ -30,16 +30,18 @@ Users should be able to:
 
 ### Links
 - Solution URL: [Frontend Mentor]()
-- Live Site URL: [Github Pages]()
+- Live Site URL: [Github Pages](https://amitkafle.github.io/FEM-Time-Tracking-Dashboard/)
 
 ## My process
 ### Built with
 - HTML5
 - CSS3
 - CSS Grid / CSS Flexbox
+- SCSS / SASS
+- Javascript
 
 ### What I learned
-- In this project I learned about different uses of display property "Grid & Flexbox".
+- In this project I learned about SCSS/SASS, Grids, Flexbox, Positioning and various features of Javascript.
 
 ## Author
 - Frontend Mentor - [@amitkafle](https://www.frontendmentor.io/profile/amitkafle)
