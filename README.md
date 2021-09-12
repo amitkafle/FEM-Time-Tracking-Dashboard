@@ -29,7 +29,7 @@ Users should be able to:
 ![Mobile](/screenshots/mobile.png)
 
 ### Links
-- Solution URL: [Frontend Mentor]()
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/time-tracking-dashboard-using-html-scss-and-javascript-nQet4QWY8)
 - Live Site URL: [Github Pages](https://amitkafle.github.io/FEM-Time-Tracking-Dashboard/)
 
 ## My process
